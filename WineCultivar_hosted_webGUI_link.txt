@@ -1,0 +1,6 @@
+Name: Emeka Anyaeji Dumebi
+Matric Number: 22CG031854
+Machine Learning Algorithm Used: Random Forest Classifier
+Model persistence method used: Joblib
+Live URL of the hosted application: [PASTE YOUR RENDER/STREAMLIT APP URL HERE]
+GitHub repository link: [PASTE YOUR GITHUB REPO LINK HERE]

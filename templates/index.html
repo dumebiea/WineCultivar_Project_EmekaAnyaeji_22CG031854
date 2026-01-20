@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wine Cultivar Predictor</title>
+    <style>
+        /* CSS Embedded Directly */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+        }
+
+        h1 { color: #722F37; margin-bottom: 10px; }
+        p { color: #666; margin-bottom: 25px; }
+
+        .form-group { margin-bottom: 15px; text-align: left; }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #333;
+            font-size: 0.9em;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        input:focus {
+            border-color: #722F37;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            background-color: #722F37;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+
+        button:hover { background-color: #5a252c; }
+
+        .result {
+            margin-top: 25px;
+            padding: 15px;
+            background-color: #e8f5e9;
+            border: 1px solid #c8e6c9;
+            border-radius: 6px;
+            color: #2e7d32;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🍷 Wine Origin System</h1>
+        <p>Enter chemical properties to predict cultivar.</p>
+
+        <form action="/" method="post">
+            <div class="form-group">
+                <label>Alcohol (11.0 - 15.0)</label>
+                <input type="number" step="0.01" name="alcohol" placeholder="e.g. 13.5" required>
+            </div>
+            <div class="form-group">
+                <label>Flavanoids (0.3 - 5.1)</label>
+                <input type="number" step="0.01" name="flavanoids" placeholder="e.g. 2.0" required>
+            </div>
+            <div class="form-group">
+                <label>Color Intensity (1.3 - 13.0)</label>
+                <input type="number" step="0.01" name="color_intensity" placeholder="e.g. 5.4" required>
+            </div>
+            <div class="form-group">
+                <label>Hue (0.4 - 1.8)</label>
+                <input type="number" step="0.01" name="hue" placeholder="e.g. 1.0" required>
+            </div>
+            <div class="form-group">
+                <label>Proline (278 - 1680)</label>
+                <input type="number" step="0.1" name="proline" placeholder="e.g. 750" required>
+            </div>
+            <div class="form-group">
+                <label>Magnesium (70 - 162)</label>
+                <input type="number" step="0.1" name="magnesium" placeholder="e.g. 100" required>
+            </div>
+            
+            <button type="submit">Predict Cultivar</button>
+        </form>
+
+        {% if prediction %}
+        <div class="result">
+            {{ prediction }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
